@@ -1,0 +1,7 @@
+# Utilisez l'image de base PHP avec Apache
+FROM php:8.2.0-apache
+# Copiez le contenu du répertoire "front" dans le répertoire /var/www/html du conteneur
+COPY ./front /var/www/html
+ENV HOST=localhost:6061
+# Exposez le port 80
+EXPOSE 80

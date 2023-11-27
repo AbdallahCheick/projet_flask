@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  mysql:
+    image: abdallah7959/flask_mysql_server:v0
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: part1
+    ports:
+      - "3307:3306"
+    container_name: database_server
+
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      PMA_ARBITRARY: 1
+    ports:
+      - "7070:80"
+    container_name: client_php
+
+  frontend:
+    image: abdallah7959/flask_front:v0
+    ports:
+      - "6060:80"
+    container_name: front
+
+  backend:
+    image: abdallah7959/flask_back:v0
+    ports:
+      - "5000:5000"
+    container_name: back
